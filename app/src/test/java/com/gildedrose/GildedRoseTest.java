@@ -10,8 +10,10 @@ class GildedRoseTest {
     @ParameterizedTest
     @CsvSource({
             "Cheese, 5, 3, 1, 2",
+            "Potatoes, 2, 13, 5, 5",
+            "Milk, 5, 2, 5, 0",
     })
-    void updateQualityCorrectly(String name, int sellIn, int quality, int days, int expectedQuality) {
+    void ShouldUpdateQualityCorrectly(String name, int sellIn, int quality, int days, int expectedQuality) {
         Item[] items = new Item[] { new Item(name, sellIn, quality) };
         GildedRose app = new GildedRose(items);
         for (int i = 0; i < days; i++) {
@@ -24,8 +26,10 @@ class GildedRoseTest {
     @ParameterizedTest
     @CsvSource({
             "Cheese, 5, 3, 1, 4",
+            "Potatoes, 2, 13, 5, -3",
+            "Milk, 5, 2, 5, 0",
     })
-    void updateSellInCorrectly(String name, int sellIn, int quality, int days, int expectedQuality) {
+    void ShouldUpdateSellInCorrectly(String name, int sellIn, int quality, int days, int expectedQuality) {
         Item[] items = new Item[] { new Item(name, sellIn, quality) };
         GildedRose app = new GildedRose(items);
         for (int i = 0; i < days; i++) {
