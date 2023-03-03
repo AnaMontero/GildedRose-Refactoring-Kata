@@ -1,11 +1,56 @@
 package com.gildedrose;
 
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class GildedRoseTest {
+
+    @Test
+    void ShouldDecreaseOneQualityPerDay(){
+
+    }
+
+    @Test
+    void ShouldDecreaseOneSellInPerDay(){
+
+    }
+
+    @Test
+    void ShouldDecreaseQualityTwiceFasterWhenSellInIsPassed(){
+
+    }
+
+
+    @Test
+    void ShouldNotHaveNegativeQuality(){
+
+    }
+
+    @Test
+    void ShouldNotHaveQualityOverTheLimit(){
+        var limit = 50;
+
+    }
+
+    @Test
+    void ShouldIncreaseQualityForAgedBrieItem(){
+
+    }
+
+    @Test
+    void ShouldIncreaseQualityDependingOnRemainingSellIn(){
+
+    }
+
+    @Test
+    void ShouldKeepSellInAndQualityUnchanged(){
+
+    }
+
+
 
     @ParameterizedTest
     @CsvSource({
