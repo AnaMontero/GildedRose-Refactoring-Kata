@@ -77,11 +77,11 @@ class GildedRoseTest {
 
     @ParameterizedTest
     @CsvSource({
-            "Backstage passes to a TAFKAL80ETC concert, 8, 4, 5, 14",
-            "Backstage passes to a TAFKAL80ETC concert, 4, 6, 7, 9",
-            "Backstage passes to a TAFKAL80ETC concert, 4, 12, 4, 0",
+            "Backstage passes to a TAFKAL80ETC concert, 12, 4, 3, 8",
+            "Backstage passes to a TAFKAL80ETC concert, 8, 4, 5, 16",
+            "Backstage passes to a TAFKAL80ETC concert, 4, 6, 4, 18",
+            "Backstage passes to a TAFKAL80ETC concert, 9, 12, 13, 0",
     })
-    //TODO: pendiente corregir test
     void ShouldIncreaseQualityDependingOnRemainingSellIn(String name, int sellIn, int quality, int days, int expectedQuality){
         Item[] items = new Item[] { new Item(name, sellIn, quality) };
         GildedRose app = new GildedRose(items);
@@ -110,7 +110,6 @@ class GildedRoseTest {
         int updatedQuality = items[0].quality;
 
         assertEquals(limit, updatedQuality);
-
     }
 
     @ParameterizedTest
