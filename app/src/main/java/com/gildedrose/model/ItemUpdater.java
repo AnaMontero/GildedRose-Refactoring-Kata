@@ -1,12 +1,21 @@
 package com.gildedrose.model;
 
 public class ItemUpdater {
-    public void updateAgedBrie(Item item) {
+    public void updateRegularItem(Item item) {
+        decreaseQuality(item);
+        decreaseSellIn(item);
+
+        if (item.sellIn < 0) {
+            decreaseQuality(item);
+        }
+    }
+
+    public void updateAgedBrieItem(Item item) {
         increaseQuality(item);
         decreaseSellIn(item);
     }
 
-    public void updateBackstagePasses(Item item) {
+    public void updateBackstagePassesItem(Item item) {
         if (item.sellIn < 0) {
             item.quality = 0;
         }
@@ -25,13 +34,11 @@ public class ItemUpdater {
     }
 
     private void decreaseQuality(Item item) {
-        item.quality--;
+        if (item.quality > 0) item.quality--;
     }
 
     private void increaseQuality(Item item) {
-        if (item.quality < 50) {
-            item.quality++;
-        }
+        if (item.quality < 50) item.quality++;
     }
 
     private void decreaseSellIn(Item item) {
