@@ -1,5 +1,6 @@
 package com.gildedrose;
 
+import com.gildedrose.model.Item;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
@@ -115,6 +116,7 @@ class GildedRoseTest {
     @ParameterizedTest
     @CsvSource({
             "'Sulfuras, Hand of Ragnaros', 3, 9, 5, 3, 9",
+            "'Sulfuras, Hand of Ragnaros', -5, 80, 100, -5, 80"
     })
     void ShouldKeepSellInAndQualityUnchanged(String name, int sellIn, int quality, int days, int expectedSellIn, int expectedQuality){
         Item[] items = new Item[] { new Item(name, sellIn, quality) };
