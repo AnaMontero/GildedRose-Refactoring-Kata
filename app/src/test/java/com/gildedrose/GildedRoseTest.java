@@ -1,5 +1,6 @@
 package com.gildedrose;
 
+import com.gildedrose.model.Item;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
@@ -115,6 +116,7 @@ class GildedRoseTest {
     @ParameterizedTest
     @CsvSource({
             "'Sulfuras, Hand of Ragnaros', 3, 9, 5, 3, 9",
+            "'Sulfuras, Hand of Ragnaros', -5, 80, 100, -5, 80"
     })
     void ShouldKeepSellInAndQualityUnchanged(String name, int sellIn, int quality, int days, int expectedSellIn, int expectedQuality){
         Item[] items = new Item[] { new Item(name, sellIn, quality) };
@@ -133,7 +135,9 @@ class GildedRoseTest {
     @ParameterizedTest
     @CsvSource({
             "Cheese, 7, 5, 3, 4",
-            "Milk, 3, 5, 4, -1"
+            "Milk, 3, 5, 4, -1",
+            "Aged Brie, 8, 4, 5, 3",
+            "Backstage passes to a TAFKAL80ETC concert, 9, 4, 5, 4"
     })
     void ShouldDecreaseOneSellInPerDay(String name, int sellIn, int quality, int days, int expectedSellIn){
         Item[] items = new Item[] { new Item(name, sellIn, quality) };
