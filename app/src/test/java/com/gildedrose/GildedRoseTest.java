@@ -135,7 +135,9 @@ class GildedRoseTest {
     @ParameterizedTest
     @CsvSource({
             "Cheese, 7, 5, 3, 4",
-            "Milk, 3, 5, 4, -1"
+            "Milk, 3, 5, 4, -1",
+            "Aged Brie, 8, 4, 5, 3",
+            "Backstage passes to a TAFKAL80ETC concert, 9, 4, 5, 4"
     })
     void ShouldDecreaseOneSellInPerDay(String name, int sellIn, int quality, int days, int expectedSellIn){
         Item[] items = new Item[] { new Item(name, sellIn, quality) };
