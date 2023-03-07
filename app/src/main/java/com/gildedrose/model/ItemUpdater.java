@@ -1,15 +1,17 @@
 package com.gildedrose.model;
 
 public abstract class ItemUpdater {
-    public void updateItem(Item item) {
+    public abstract void updateItem(Item item);
+
+    protected void decreaseQuality(Item item) {
+        if (item.quality > 0) item.quality--;
     }
 
-    private void decreaseQuality(Item item) {
+    protected void increaseQuality(Item item) {
+        if (item.quality < 50) item.quality++;
     }
 
-    private void increaseQuality(Item item) {
-    }
-
-    private void decreaseSellIn(Item item) {
+    protected void decreaseSellIn(Item item) {
+        item.sellIn--;
     }
 }

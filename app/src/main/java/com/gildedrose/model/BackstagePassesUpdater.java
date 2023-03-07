@@ -18,12 +18,4 @@ public class BackstagePassesUpdater extends ItemUpdater {
         }
         decreaseSellIn(item);
     }
-
-    private void increaseQuality(Item item) {
-        if (item.quality < 50) item.quality++;
-    }
-
-    private void decreaseSellIn(Item item) {
-        item.sellIn--;
-    }
 }

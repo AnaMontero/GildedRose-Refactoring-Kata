@@ -10,11 +10,4 @@ public class RegularItemUpdater extends ItemUpdater {
             decreaseQuality(item);
         }
     }
-    protected void decreaseQuality(Item item) {
-        if (item.quality > 0) item.quality--;
-    }
-
-    private void decreaseSellIn(Item item) {
-        item.sellIn--;
-    }
 }
