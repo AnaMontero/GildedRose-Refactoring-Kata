@@ -1,21 +1,18 @@
 package com.gildedrose;
 
-import com.gildedrose.model.AgedBrieUpdater;
-import com.gildedrose.model.BackstagePassesUpdater;
-import com.gildedrose.model.Item;
-import com.gildedrose.model.ItemUpdater2;
+import com.gildedrose.model.*;
 
 class GildedRose {
     private final Item[] items;
 
-    private final ItemUpdater2 itemUpdater2;
+    private final RegularItemUpdater regularItemUpdater;
     private final AgedBrieUpdater agedBrieUpdater;
     private final BackstagePassesUpdater backstagePassesUpdater;
 
     public GildedRose(Item[] items) {
         this.items = items;
+        this.regularItemUpdater = new RegularItemUpdater();
         this.agedBrieUpdater = new AgedBrieUpdater();
-        this.itemUpdater2 = new ItemUpdater2();
         this.backstagePassesUpdater = new BackstagePassesUpdater();
     }
 
@@ -28,7 +25,7 @@ class GildedRose {
                 backstagePassesUpdater.updateItem(item);
             }
             else if(!isSulfuras(item)){
-                itemUpdater2.updateRegularItem(item);
+                regularItemUpdater.updateItem(item);
             }
         }
     }
