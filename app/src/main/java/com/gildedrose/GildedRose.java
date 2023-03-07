@@ -8,12 +8,14 @@ class GildedRose {
     private final RegularItemUpdater regularItemUpdater;
     private final AgedBrieUpdater agedBrieUpdater;
     private final BackstagePassesUpdater backstagePassesUpdater;
+    private final ConjuredUpdater conjuredUpdater;
 
     public GildedRose(Item[] items) {
         this.items = items;
         this.regularItemUpdater = new RegularItemUpdater();
         this.agedBrieUpdater = new AgedBrieUpdater();
         this.backstagePassesUpdater = new BackstagePassesUpdater();
+        this.conjuredUpdater = new ConjuredUpdater();
     }
 
     public void updateQuality() {
@@ -25,7 +27,7 @@ class GildedRose {
                 backstagePassesUpdater.updateItem(item);
             }
             else if (isConjured(item)) {
-                //TODO
+                conjuredUpdater.updateItem(item);
             }
             else if(!isSulfuras(item)){
                 regularItemUpdater.updateItem(item);
