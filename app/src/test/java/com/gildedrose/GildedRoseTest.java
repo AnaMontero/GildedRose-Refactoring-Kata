@@ -27,6 +27,24 @@ class GildedRoseTest {
 
     @ParameterizedTest
     @CsvSource({
+            "Conjured Potatoes, 7, 17, 4, 9",
+            "Conjured, 14, 6, 1, 4",
+            "Conjured Mana Cake, 15, 14, 3, 8"
+    })
+    void ShouldDecreaseTwoQualityPerDay(String name, int sellIn, int quality, int days, int expectedQuality) {
+        Item[] items = new Item[] { new Item(name, sellIn, quality) };
+        GildedRose app = new GildedRose(items);
+
+        for (int i = 0; i < days; i++) {
+            app.updateQuality();
+        }
+        int updatedQuality = items[0].quality;
+
+        assertEquals(expectedQuality, updatedQuality);
+    }
+
+    @ParameterizedTest
+    @CsvSource({
             "Fish, 1, 4, 2, 1",
             "Chicken, 2, 6, 3, 2",
             "Milk, 3, 5, 4, 0",
@@ -45,7 +63,8 @@ class GildedRoseTest {
 
     @ParameterizedTest
     @CsvSource({
-            "Eggs, 4, 4, 10, 0"
+            "Eggs, 4, 4, 10, 0",
+            "Conjured Cheese, 7, 5, 10, 0",
     })
     void ShouldNotHaveNegativeQuality(String name, int sellIn, int quality, int days, int expectedQuality){
         Item[] items = new Item[] { new Item(name, sellIn, quality) };
@@ -137,7 +156,8 @@ class GildedRoseTest {
             "Cheese, 7, 5, 3, 4",
             "Milk, 3, 5, 4, -1",
             "Aged Brie, 8, 4, 5, 3",
-            "Backstage passes to a TAFKAL80ETC concert, 9, 4, 5, 4"
+            "Backstage passes to a TAFKAL80ETC concert, 9, 4, 5, 4",
+            "Conjured Mana Cake, 15, 4, 9, 6",
     })
     void ShouldDecreaseOneSellInPerDay(String name, int sellIn, int quality, int days, int expectedSellIn){
         Item[] items = new Item[] { new Item(name, sellIn, quality) };

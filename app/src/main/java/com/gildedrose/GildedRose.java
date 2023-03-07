@@ -24,6 +24,9 @@ class GildedRose {
             else if (isBackstagePasses(item)) {
                 backstagePassesUpdater.updateItem(item);
             }
+            else if (isConjured(item)) {
+                //TODO
+            }
             else if(!isSulfuras(item)){
                 regularItemUpdater.updateItem(item);
             }
@@ -41,5 +44,9 @@ class GildedRose {
 
     private boolean isSulfuras(Item item) {
         return item.name.toLowerCase().startsWith("sulfuras");
+    }
+
+    private boolean isConjured(Item item){
+        return  item.name.toLowerCase().startsWith("conjured");
     }
 }
