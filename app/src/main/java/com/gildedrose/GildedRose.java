@@ -27,6 +27,7 @@ class GildedRose {
             else if(!isSulfuras(item)){
                 regularItemUpdater.updateItem(item);
             }
+
         }
     }
 
@@ -35,10 +36,10 @@ class GildedRose {
     }
 
     private boolean isBackstagePasses(Item item) {
-        return item.name.equals("Backstage passes to a TAFKAL80ETC concert");
+        return item.name.toLowerCase().startsWith("backstage passes");
     }
 
     private boolean isSulfuras(Item item) {
-        return item.name.equals("Sulfuras, Hand of Ragnaros");
+        return item.name.toLowerCase().startsWith("sulfuras");
     }
 }
